@@ -20,6 +20,10 @@ import java.nio.charset.Charset;
 public class ConnectExample {
     private static final Channel CHANNEL_FROM_SOMEWHERE = new NioSocketChannel();
 
+    public static void main(String[] args) {
+        connect();
+    }
+
     /**
      * Listing 1.3 Asynchronous connect
      *
@@ -29,7 +33,7 @@ public class ConnectExample {
         Channel channel = CHANNEL_FROM_SOMEWHERE; //reference form somewhere
         // Does not block
         ChannelFuture future = channel.connect(
-                new InetSocketAddress("192.168.0.1", 25));
+                new InetSocketAddress("127.0.0.1", 25));
         future.addListener(new ChannelFutureListener() {
             @Override
             public void operationComplete(ChannelFuture future) {
